@@ -98,7 +98,7 @@ export const DialogBase: FC<DialogBaseProps<HTMLElement>> = ({
     useEffect(() => {
         let timeout: number
         const handleBackgroundClick = (e: DocumentEventMap['click']) => {
-            if (drawerBaseEl.current && !drawerBaseEl.current.contains(e.target)) {
+            if (drawerBaseEl.current && !drawerBaseEl.current.contains(e.target) && document.contains(e.target as Node)) {
                 onBackgroundClick(e as unknown as DialogCloseEvent)
             }
         }
